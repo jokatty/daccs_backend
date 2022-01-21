@@ -1,10 +1,19 @@
 import express from 'express';
 import pg from 'pg';
+import cors from 'cors';
 
 const app = express();
 const PORT = 3004;
 const { Pool } = pg;
 
+// let the backend know the response is coming from local host
+const FRONTEND_URL = ['http://localhost:3000/', 'http://localhost:3001/'];
+
+// set CORS header
+app.use(cors({
+  Credentials: true,
+  origin: FRONTEND_URL,
+}));
 // configure database
 let pgConnectionConfig;
 if (process.env.DATABASE_URL) {
