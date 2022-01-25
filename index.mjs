@@ -7,11 +7,11 @@ const PORT = 3004;
 const { Pool } = pg;
 
 // let the backend know the response is coming from local host
-const FRONTEND_URL = ['http://localhost:3000/', 'http://localhost:3001/'];
+const FRONTEND_URL = process.env.FRONTEND_URL || 'http://localhost:3000';
 
 // set CORS header
 app.use(cors({
-  Credentials: true,
+  credentials: true,
   origin: FRONTEND_URL,
 }));
 // configure database
