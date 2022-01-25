@@ -45,7 +45,7 @@ app.get('/', (req, res) => {
     const userData = {
       data: result.rows,
     };
-    res.send(userData);
+    res.send(userData.data);
   });
 });
 // spin the server in port 3004
