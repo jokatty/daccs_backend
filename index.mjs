@@ -39,7 +39,6 @@ app.get('/', (req, res) => {
   const sqlQuery = 'SELECT * FROM users';
   pool.query(sqlQuery, (error, result) => {
     if (error) {
-      console.log('error executing the query', error.stack);
       res.status(503).send(result.rows);
     }
     const userData = {
@@ -49,6 +48,4 @@ app.get('/', (req, res) => {
   });
 });
 // spin the server in port 3004
-app.listen(PORT, () => {
-  console.log(`listing to port:${PORT}`);
-});
+app.listen(PORT);
