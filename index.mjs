@@ -69,5 +69,6 @@ app.post('/update', (req, res) => {
     res.send(result);
   });
 });
+
 // spin the server in port 3004
 app.listen(PORT);
